@@ -33,7 +33,7 @@ node {
      // sh "whoami"
       //sh "ls -all /var/run/docker.sock"
      // sh "mv ./target/hello*.jar ./data" 
-      dockerImage = docker.build("hello-world-java")
+      dockerImage = docker.build("parosh/hello-world-java")
     }
    
     stage('Push image') {
