@@ -1,6 +1,6 @@
 
 node {
-withEnv(["PATH+OC=${tool 'oc'}"]){
+
      echo "$OC"
     // reference to maven
     // ** NOTE: This 'maven-3.6.1' Maven tool must be configured in the Jenkins Global Configuration.   
@@ -49,13 +49,14 @@ withEnv(["PATH+OC=${tool 'oc'}"]){
             dockerImage.push("latest")
         }
     stage('deploy image'){
+	    withEnv(["PATH+OC=${tool 'oc'}"]){
 	    openshift.withCluster( ) {
 		    openshift.withProject( 'parosde1-in' ) {
 			    def created = openshift.newApp("parosh/hello-world-java:latest")
 		    }
 	    }		    
-	    
 	    }
-    }
+	    }
+    
 }
 }
