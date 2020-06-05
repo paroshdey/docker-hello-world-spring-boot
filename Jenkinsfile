@@ -45,5 +45,8 @@ node {
             dockerImage.push("${env.BUILD_NUMBER}")
             dockerImage.push("latest")
         }
+	    stage('deploy image'){
+	    def app = openshift.newApp("parosh/hello-world-java:latest")
+	    }
     }
 }
