@@ -46,7 +46,7 @@ node {
             dockerImage.push("latest")
         }
     stage('deploy image'){
-	    openshift.withCluster( 'https://c100-e.us-east.containers.cloud.ibm.com:30528', '8qnH1Ox3EFBKRCzuSWKq8g7Gjrqk4O4YEMzi8cviJi0' ) {
+	    openshift.withCluster( ) {
 		    openshift.withProject( 'parosde1-in' ) {
 			    def created = openshift.newApp("parosh/hello-world-java:latest")
 		    }
