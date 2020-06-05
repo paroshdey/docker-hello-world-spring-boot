@@ -1,7 +1,9 @@
 
 node {
+	//withEnv(["PATH+OC=${tool 'oc'}"])
     // reference to maven
     // ** NOTE: This 'maven-3.6.1' Maven tool must be configured in the Jenkins Global Configuration.   
+    def oc = tool 'oc'
     def mvnHome = tool 'M2'
     // holds reference to docker image
     def dockerImage
