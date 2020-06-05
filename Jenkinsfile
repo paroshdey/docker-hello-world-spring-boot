@@ -45,8 +45,13 @@ node {
             dockerImage.push("${env.BUILD_NUMBER}")
             dockerImage.push("latest")
         }
-	    stage('deploy image'){
-	    def app = openshift.newApp("parosh/hello-world-java:latest")
+    stage('deploy image'){
+	    openshift.withCluster( 'https://c100-e.us-east.containers.cloud.ibm.com:30528', '8qnH1Ox3EFBKRCzuSWKq8g7Gjrqk4O4YEMzi8cviJi0' ) {
+		    openshift.withProject( 'parosde1-in' ) {
+			    def created = openshift.newApp("parosh/hello-world-java:latest")
+		    }
+	    }		    
+	    
 	    }
     }
 }
