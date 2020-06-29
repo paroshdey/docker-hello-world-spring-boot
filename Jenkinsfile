@@ -26,8 +26,8 @@ node {
   
     stage('Build Project') {
       // build project via maven
-	mvn -Dmaven.test.failure.ignore clean package
-      //sh "'${mvnHome}/bin/mvn' -Dmaven.test.failure.ignore clean package"
+	
+      sh "'${mvnHome}/bin/mvn' -Dmaven.test.failure.ignore clean package"
     }
 	
 	
